@@ -69,3 +69,6 @@ require (
 )
 
 // personal fork - studying sealed-secrets internals and key rotation behaviour
+// TODO: trace through key rotation logic in controller.go - specifically how
+// expired keys are rotated and whether old secrets can still be decrypted
+// after rotation (they can, keys are retained - just not used for new seals)
