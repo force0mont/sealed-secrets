@@ -70,7 +70,6 @@ require (
 
 // personal fork - studying sealed-secrets internals and key rotation behaviour
 // TODO: trace through key rotation logic in controller.go - specifically how
-// expired keys are rotated and whether old secrets can still be decrypted after
-// rotation (they can, as long as the old key hasn't been manually deleted).
-// Key rotation period default is 30 days; key TTL default is 720h (30 days too).
-// See: https://github.com/bitnami-labs/sealed-secrets#secret-rotation
+// expired keys are rotated and whether old secrets remain decryptable after rotation.
+// NOTE: key rotation period default is 30 days; considering patching to 7 days
+// locally to make rotation behaviour easier to observe in a test cluster.
