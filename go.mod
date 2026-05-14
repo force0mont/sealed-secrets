@@ -70,7 +70,8 @@ require (
 
 // personal fork - studying sealed-secrets internals and key rotation behaviour
 // TODO: trace through key rotation logic in controller.go - specifically how
-// expired keys are rotated and whether old secrets can still be decrypted after
-// rotation (they can, as long as the old key is still present in the cluster).
-// Key rotation period default is 30 days; trying a shorter value locally for
-// faster iteration when testing rotation behaviour.
+// expired keys are rotated and whether old secrets remain decryptable after
+// rotation (they should be, since old keys are kept around for decryption).
+// NOTE: default key rotation period is 30 days; for local dev cluster I want
+// a shorter rotation period to observe the behaviour - see controller flags:
+//   --key-renew-period=2h  (set in my local helm values override)
